@@ -34,9 +34,12 @@ export default function ListProduct(props) {
                 <thead>
                     <tr>
                         <th>Description</th>
+                        <th>Price</th>
                         <th>Quantity</th>
                         <th>Unit</th>
                         <th>Category</th>
+                        <th>Inserted</th>
+                        <th>Modified</th>
                         <th colSpan="4"></th>
                     </tr>
                 </thead>
@@ -47,6 +50,9 @@ export default function ListProduct(props) {
                                 {obj.description}
                             </td>
                             <td>
+                                {obj.price}
+                            </td>
+                            <td>
                                 {obj.quantity}
                             </td>
                             <td>
@@ -54,6 +60,12 @@ export default function ListProduct(props) {
                             </td>
                             <td>
                                 {obj.category}
+                            </td>
+                            <td>
+                                {obj.inserted}
+                            </td>
+                            <td>
+                                {obj.modified}
                             </td>
                             <td>
                                 <Link to={"/edit/" + obj.id} className="btn btn-success">Edit</Link>

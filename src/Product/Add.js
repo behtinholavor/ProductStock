@@ -11,9 +11,12 @@ export default function AddProduct(props) {
     async function InsProduct() {
         const response = await api.post('Stock/', {
             Description: product.description,
+            Price: product.price,
             Quantity: product.quantity,
             Unit: product.unit,
-            Category: product.category
+            Category: product.category,
+            Inserted: product.inserted,
+            Modified: product.modified,
         })
 
         if (response.status == 200) {
@@ -31,13 +34,19 @@ export default function AddProduct(props) {
 
     return (
         <Container className="App">
-            <h4 className="PageHeading">Product [Insert]]</h4>
+            <h4 className="PageHeading">Product [ Add ]</h4>
             <Form className="form">
                 <Col>
                     <FormGroup row>
                         <Label for="Description" sm={2}>Description</Label>
                         <Col sm={10}>
                             <Input type="text" name="Description" value={product.description} onChange={(event) => onChange(event.target.value, 'description')} placeholder="Enter Description" />
+                        </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Label for="Price" sm={2}>Quantity</Label>
+                        <Col sm={10}>
+                            <Input type="text" name="Price" value={product.price} onChange={(event) => onChange(event.target.value, 'price')} placeholder="Enter Price" />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
@@ -50,6 +59,7 @@ export default function AddProduct(props) {
                         <Label for="Unit" sm={2}>Unit</Label>
                         <Col sm={10}>
                             <Input type="select" name="Unit" value={product.unit} onChange={(event) => onChange(event.target.value, 'unit')} placeholder="Enter Unit">
+                                <option>Select Unit</option>
                                 <option>UN</option>
                                 <option>KG</option>
                                 <option>M</option>
@@ -63,6 +73,7 @@ export default function AddProduct(props) {
                         <Label for="Category" sm={2}>Category</Label>
                         <Col sm={10}>
                             <Input type="select" name="Category" value={product.category} onChange={(event) => onChange(event.target.value, 'category')} placeholder="Enter Category">
+                                <option>Select Category</option>
                                 <option>MATÉRIA-PRIMA</option>
                                 <option>INSUMO</option>
                             </Input>
@@ -74,7 +85,7 @@ export default function AddProduct(props) {
                         <Col sm={5}>
                         </Col>
                         <Col sm={1}>
-                            <button type="button" onClick={InsProduct} className="btn btn-success">Submit</button>
+                            <button type="button" onClick={InsProduct} className="btn btn-success">Save</button>
                         </Col>
                         <Col sm={1}>
                             <Button color="danger" onClick={() => props.history.goBack(1)}>Cancel</Button>{' '}
