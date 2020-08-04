@@ -1,19 +1,20 @@
-import React from 'react'
+import React from 'react';
+import AddProduct from './Product/Add';
+import ListProduct from './Product/List';
+import EditProduct from './Product/Edit';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './App.css';
 
-const App = () => {
-    return (
-        <div className="container">
-            <h1>CRUD App with Hooks</h1>
-            <div className="flex-row">
-                <div className="flex-large">
-                    <h2>Add user</h2>
-                </div>
-                <div className="flex-large">
-                    <h2>View users</h2>
-                </div>
-            </div>
-        </div>
-    )
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/AddProduct' component={AddProduct} />
+        <Route path='/edit/:id' component={EditProduct} />
+        <Route path='/' exact component={ListProduct} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App;
+export default App;  

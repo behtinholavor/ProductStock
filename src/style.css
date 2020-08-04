@@ -1,0 +1,24 @@
+.PageHeading    
+{    
+  margin-top: 10px;    
+  margin-bottom: 10px;    
+  color :black !important;    
+} 
+
+.main-list {
+  margin: 20px;
+}
+
+.btn {
+  width: 70px;
+  margin-left: 10px;
+}
+
+.title-list{
+  width: 100%;
+  display: flex;
+}
+
+.btn-add {
+  margin-left: auto;
+}
